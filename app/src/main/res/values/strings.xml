@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Concurso</string>
+    <string-array name="opciones">
+        <item>MarineFord</item>
+        <item>DressRosa</item>
+        <item>Wano</item>
+    </string-array>
+</resources>
