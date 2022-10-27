@@ -19,20 +19,24 @@ class DisplayMessageActivity4 : AppCompatActivity() {
     lateinit var nombre: String
     var captura_imagen=1
     lateinit var foto :ImageView
+    lateinit var contenido: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_message4)
         var personaje: TextView = findViewById(R.id.nombre)
         foto = findViewById(R.id.iv)
 
+
         nombre= intent.getStringExtra("nombre").toString()
         var mostrarNombre = findViewById<TextView>(R.id.textView5)
         mostrarNombre.setText(nombre)
-        guardar()
+
         if(cont1==30)
         {
             personaje.setText("luffy")
             foto.setImageResource(R.drawable.luffy)
+
 
         }
 
@@ -41,12 +45,15 @@ class DisplayMessageActivity4 : AppCompatActivity() {
             personaje.setText("zoro")
             foto.setImageResource(R.drawable.zoro)
 
+
         }
         else{
             personaje.setText("sanji")
             foto.setImageResource(R.drawable.sanji)
-        }
 
+        }
+        contenido = "$nombre, $cont1 "
+        guardar()
     }
 
 
@@ -78,12 +85,12 @@ class DisplayMessageActivity4 : AppCompatActivity() {
 
 
     fun guardar(){
-        var archivo: String = "puntos25.csv"
+        var archivo: String = "puntos4.csv"
 
         var osw: OutputStreamWriter= OutputStreamWriter(openFileOutput( archivo, Context.MODE_PRIVATE))
        // osw.write(nombre)
         //osw.flush()
-        osw.write(cont1)
+        osw.write(contenido)
         osw.flush()
         osw.close()
 

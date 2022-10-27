@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Concurso"
         tools:targetApi="31">
         <activity
+            android:name=".recycler"
+            android:exported="false"
+            android:label="@string/title_activity_recycler"
+            android:theme="@style/Theme.Concurso.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -24,19 +33,16 @@
         </activity>
         <activity
             android:name=".DisplayMessageActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".DisplayMessageActivity2"
-            android:exported="false">
-        </activity>
-        <activity android:name=".DisplayMessageActivity3"
-            android:exported="false">
-        </activity>
-        <activity android:name=".DisplayMessageActivity4"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
+        <activity
+            android:name=".DisplayMessageActivity3"
+            android:exported="false"></activity>
+        <activity
+            android:name=".DisplayMessageActivity4"
+            android:exported="false"></activity>
     </application>
 
 </manifest>
