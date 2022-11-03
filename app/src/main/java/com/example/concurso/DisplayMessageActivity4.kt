@@ -52,7 +52,7 @@ class DisplayMessageActivity4 : AppCompatActivity() {
             foto.setImageResource(R.drawable.sanji)
 
         }
-        contenido = "$nombre, $cont1 "
+        contenido = "$nombre,$cont1,${personaje.text},$nombre$cont1.jpg\n"
         guardar()
     }
 
@@ -79,21 +79,27 @@ class DisplayMessageActivity4 : AppCompatActivity() {
     }
 
     fun crearNombreArchivoJPG(): String {
-        var fecha: String = SimpleDateFormat("yyyyMMdd_HHmmss").format( Date())
-        return fecha + ".jpg "
+        var nombreFoto: String =nombre + cont1+ ".jpg"
+        return nombreFoto
     }
 
 
     fun guardar(){
         var archivo: String = "puntos4.csv"
 
-        var osw: OutputStreamWriter= OutputStreamWriter(openFileOutput( archivo, Context.MODE_PRIVATE))
+        var osw: OutputStreamWriter= OutputStreamWriter(openFileOutput( archivo, Context.MODE_APPEND))
        // osw.write(nombre)
         //osw.flush()
         osw.write(contenido)
         osw.flush()
         osw.close()
 
+    }
+
+    fun pasarDatos(view: View){
+        intent= Intent(this, recycler::class.java).apply {
+        }
+        startActivity(intent)
     }
 
 }
